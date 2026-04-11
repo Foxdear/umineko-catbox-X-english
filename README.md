@@ -1,3 +1,11 @@
+# Umineko Catbox-X English
+
+Catbox-X is a fork of [@andOlga's](https://github.com/andOlga) English patch for the Switch version of Umineko, with the goal of fixing what issues remained with the final release of that patch.
+
+See [here](fork.md) for a more thorough explanation. To preserve the dedication to Tara, with the exception of the installation instructions, the below text is left as written by @andOlga.
+
+---
+
 This project is dedicated, in its entirety, to my beloved Tara.
 
 Reading Umineko together, with this patch, while it was still being worked on,
@@ -79,11 +87,11 @@ Game updates are optional, the patch applies cleanly regardless of the game's ve
 To comply with US laws, you have to [buy the game](https://google.com/search?q=うみねこのなく頃に咲～猫箱と夢想の交響曲～) and dump it using nxdumptool from a CFW-capable console to obtain a legal copy for emulation. Software distribution laws in other countries may vary.
 
 ### On PC (using yuzu)
-yuzu is compatible with the game and the patch.
+yuzu is compatible with the game and the patch. (If you are looking for a modern yuzu fork, I would suggest Eden.)
 
 To set yuzu up, you will need a copy of your encryption keys dumped from a CFW-capable console, and the game itself. Once you have acquired the keys, navigate to File -> Open yuzu folder, then find the subfolder called "keys" inside that and paste the file there. Restart yuzu and double-click the giant empty rectangle in the main yuzu window to add your game folder.
 
-To install the patch, [download](https://github.com/andOlga/umineko-catbox-english/releases/latest/download/patch_yuzu.zip) the yuzu version,
+To install the patch, [download](https://github.com/foxdear/umineko-catbox-X-english/releases/latest/download/patch_yuzu.zip) the yuzu version,
 <br>then right-click the game in yuzu, choose "Open Mod Data Location" and extract the entire archive there.
 
 You may now start the game in yuzu and play it in English.
@@ -93,7 +101,7 @@ Ryujinx is compatible with the game and the patch.
 
 To set Ryujinx up, you will need a copy of your encryption keys dumped from a CFW-capable console as well as that console's firmware, and the game itself. Having acquired these, you may follow their Guide to finish your configuration and add the game to Ryujinx, but please ignore the "Managing mods" section as this patch has a somewhat more complicated structure and cannot be simply added to a per-game folder like they recommend.
 
-To install the patch, [download](https://github.com/andOlga/umineko-catbox-english/releases/latest/download/patch_atmos.zip) the Atmosphère version (Ryujinx is 100% Atmosphère-compatible),
+To install the patch, [download](https://github.com/foxdear/umineko-catbox-X-english/releases/latest/download/patch_atmos.zip) the Atmosphère version (Ryujinx is 100% Atmosphère-compatible),
 <br>then choose File -> Open Ryujinx Folder. Navigate to the "mods" directory and extract the entire archive to that location. If the "mods" directory does not exist, create it first.
 
 You may now start the game in Ryujinx and play it in English.
@@ -105,7 +113,7 @@ Just like on PC, you will need a copy of your encryption keys. yuzu will ask you
 
 Once the initial setup is done, **run the base game (in Japanese) at least once and exit it**. This will allow you to confirm that your device can actually run the game, and also create some required files necessary for the patch installation to work.
 
-You may now [download](https://github.com/andOlga/umineko-catbox-english/releases/latest/download/patch_yuzu.zip) the yuzu version of the patch,<br>and extract it somewhere on your device.
+You may now [download](https://github.com/foxdear/umineko-catbox-X-english/releases/latest/download/patch_yuzu.zip) the yuzu version of the patch,<br>and extract it somewhere on your device.
 
 Now return to yuzu, and in the settings menu tap "Open yuzu folder". Pull out the menu on the left, switch to "Internal Storage" (or "SD Card") and find the extracted mod files. Tap and hold the `UminekoCatboxEnglish` folder to select it, and choose "Copy to..." from the kebab menu on top. Pull out the left panel again, tap "yuzu" and navigate to `load/01006A300BA2C000/`, then click the "Copy" button to install the patch.
 
@@ -115,7 +123,7 @@ The next time you start the game, it will be in English.
 
 If you want to play the game on your console, it will need Atmosphère installed on it.
 If you don't have Atmosphère already, please see if it's compatible with your console model and install it if it is.
-Afterwards, [download](https://github.com/andOlga/umineko-catbox-english/releases/latest/download/patch_atmos.zip) the Atmosphère version of the patch and copy it to the "atmosphere" folder on your SD card.
+Afterwards, [download](https://github.com/foxdear/umineko-catbox-X-english/releases/latest/download/patch_atmos.zip) the Atmosphère version of the patch and copy it to the "atmosphere" folder on your SD card.
 The next time the game starts, it should be in English.
 
 ## Alternative translations
@@ -124,7 +132,7 @@ There is a fair number of [translations of Umineko to other languages](https://g
 
 **Note that these are completely unrelated to me. I cannot guarantee their accuracy or even basic functionality. I will not help you get these working, nor will I answer any questions about them.**
 
-If you wish to create your own fan translation, please check the documentation [here](https://github.com/andOlga/umineko-catbox-english/blob/rebirth/CONTRIBUTING.md). **I will most likely not be able to provide any assistance beyond what's written in these docs.**
+If you wish to create your own fan translation, please check the documentation [here](CONTRIBUTING.md). **I will most likely not be able to provide any assistance beyond what's written in these docs.**
 
 ## Support/Contact
 

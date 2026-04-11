@@ -34,6 +34,12 @@ can cause the game to go haywire and erase your save data *completely*. Make bac
 
 # Editing the script
 
+For ease of use and organization, Catbox-X's script is stored in several YAML format (.yml) files, sorted by chapter.
+
+The lines are written within single-quote blocks. The main quirk of YAML you have to worry about is that single-quotes are escaped with a double single-quote. So if you wish to write something like "You've", you would instead write `You''ve`.
+
+Things like character profiles and chapter titles are still in script.rb. These will be split into their own files eventually, but for now much of the below still applies:
+
 The main script is stored in the `script.rb` file. Note that this file contains a mix of text and binary data, so you need to use a sane editor for changing it that preserves NUL characters.
 I use [Visual Studio Code](https://code.visualstudio.com), but there may be others that work fine.
 
@@ -66,7 +72,7 @@ The tags that are used in Umineko, with example arguments, are as follows:
 - `@z70.` changes the font size to 70% of the normal size. The default size, therefore, is `@z100.`.
 - `@{text@}` displays "text" in bold.
 - `@[text@]` displays "text" instantly, regardless of the user's text speed setting.
-- `@btop text.@<bottom text@>` causes [furigana](https://en.wikipedia.org/wiki/Ruby_character) to render, with "bottom text" being the main, large text at the bottom, and "top text" being the smaller, informative text at the top. This is used mainly for pronounciation guides. Note that "top text", annoyingly, may not include any other tags or the `.` character.
+- `@btop text.@<bottom text@>` causes [furigana](https://en.wikipedia.org/wiki/Ruby_character) to render, with "bottom text" being the main, large text at the bottom, and "top text" being the smaller, informative text at the top. This is used mainly for pronunciation guides. Note that "top text", annoyingly, may not include any other tags or the `.` character.
 - `@|` runs an external piece of code. This can do virtually anything, but is generally used for sound effect playback or mid-line sprite changes. This code is defined outside of the line itself, and it's not currently known how to change it. Because of this, it's very important to keep the amount and placement of `@|` tags the same between translated and original lines, as modifying these can break the whole game.
 - `@y` waits for the code that was launched by `@|` to finish executing. It almost always directly follows `@|`, and just like the above, its placement should not be modified from the original line.
 
