@@ -1,6 +1,7 @@
 # Story spoilers ahead.
 
-Where possible I will give specific line numbers for the line I have modified. When I say I have modified a line number, I mean the line with the YAML index \[number\]. The first line of Episode 1 is line 1 of umi1_0.yml, but its index is 109.
+Where possible[^1] I will list all changes and give specific line numbers for the line I have modified. When I say I have modified a line number, I mean the line with the YAML index \[number\]. The first line of Episode 1 is line 1 of umi1_0.yml, but its index is 109.
+[^1]:This is professional-speak for "unless I forgot."
 
 There's two major things:
 The first one is that the "red truth" (and later "blue truth") throughout has inconsistent spacing, usually when the sentence before it ends with a period.
@@ -15,6 +16,8 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
 
 <details>
    <summary>Example</summary>
+    This isn't the most egeregious example, but this is probably the first one you'd see in the story.
+
    <img width="1999" height="512" alt="red text" src="https://github.com/user-attachments/assets/814b506e-6b28-40a4-bee0-d1b4febd63fb" />
    
    This looks pretty clearly off in-game, but this line in the code looks like this.
@@ -77,7 +80,7 @@ Remaining minor misc changes:
 
 * Extra spaces: 26220
 * Missing period: 31560
-* Lines that have the japanese end quote character in Episode 3 instead of the ending quotation mark: 18603, 19189
+* Lines that have the japanese end quote character 」 in Episode 3 instead of the ending quotation mark: 18603, 19189
 * "You knew that George slipped out of the mansion!!" This should be guesthouse (21228)
     * This was actually a mistake originating from Umineko Project that no one had changed before I found it, so I submitted a pull request to get it fixed there too. Love wins
 * "it's a good view.Uu!" (23245)
