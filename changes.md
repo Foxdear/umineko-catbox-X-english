@@ -34,18 +34,17 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
    Episode 3:<br>
    Prologue - Done, no issues<br>
    Chapter 4 - Done, no issues<br>
-   Chapter 5 - Done, no issues<br>
-   Chapter 9<br>
-   Chapter 10<br>
-   Chapter 11<br>
-   Chapter 13<br>
-   Chapter 17<br>
+   Chapter 5 - Done, fixed 16872<br>
+   Chapter 9 - Done, fixed 18181<br>
+   Chapter 10 & Chapter 11 are one-liners and fine<br>
+   Chapter 13 - Done, fixed 19461<br>
+   Chapter 17 - Done, fixed 21712, 21767, 21787, 21831, 21933, 21942 (several), 21955, 21962 (whew)<br>
    Episode 4:<br>
-   Chapter 17<br>
-   Chapter 19<br>
-   Chapter 20<br>
-   Chapter 21<br>
-   16872<br>
+   Chapter 4 - Done, 24002 had an extra space actually<br>
+   Chapter 17 - Done, fixed 30500, 30523, 30529<br>
+   Chapter 19 - Done, fixed 31481 (extra spaces)<br>
+   Chapter 20 (Tea Party) - 32162, 32168, 32169, 32180, 32181, 32182, 32340, 32351, 32364, 32365, 32366, 32372, 32384, 32386, 32390, 32391, 32400, 32409, 32411, 32413, 32441, 32501, 32503, 32550, 32552, 32556. God they talk so much<br>
+   Chapter 21 (???) - 32590, 32591, 32595, <br>
 </details>
 
 ## "Uu♪"
@@ -519,6 +518,7 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
 23833<br>
 23940<br>
 23969<br>
+24002<br>
 24022<br>
 24085<br>
 24158<br>
@@ -1037,6 +1037,7 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
    3177<br>
    3269<br>
    6731<br>
+   10181<br>
    11917<br>
    11923<br>
    11925<br>
@@ -1048,16 +1049,16 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
    13373<br>
    13798<br>
    14581<br>
-   10181<br>
    15169<br>
-   19300<br>
-   20034<br>
-   22282<br>
    15546<br>
    15811<br>
    15865<br>
    16960<br>
    17359<br>
+   19300<br>
+   20034<br>
+   21988<br>
+   22282<br>
    26220<br>
    33720<br>
    34643<br>
@@ -1142,3 +1143,4 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
     * https://github.com/umineko-project/umineko-scripting/commit/23784ec431385d81238dea23a5e86c7442ba6d75
     * https://github.com/umineko-project/umineko-scripting/commit/134a267165adce3e15dce672e9d07cc9a8f74077
     * https://github.com/umineko-project/umineko-scripting/commit/c347ddb894e804e2926a1b0c0090f606527d1416
+* This is technically changing the translation, but Battler says "e.g. Kumasawa-san" in a blue truth in Episode 4 (32390). "e.g." isn't used anywhere else in the text and it's not really something you would say out loud. I think it's okay to rephrase this as "*like* Kumasawa-san", but I might revert this. The original line is "熊沢さんを始め、当時アリバイがない人間が存在した。"
