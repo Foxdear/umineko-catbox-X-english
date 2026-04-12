@@ -8,9 +8,28 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
 
 <details>
    <summary>Truth fixes</summary>
-   13136<br>
-   13137<br>
-   13180<br>
+   For my own reference, since the "truths" are usually pretty densely consolidated, here's all the chapters containing "truths" (from what I've read thus far) and whether or not I've checked them<br>
+   Episode 2:<br>
+   Chapter 11 - Done, no issues<br>
+   Chapter 12 - Done, no issues<br>
+   Chapter 13 - Done, no issues<br>
+   Chapter 14 - Done with fixes on 13136, 13137, 13180<br>
+   Chapter 15 - Done, no issues<br>
+   Chapter 16 - Done, no issues<br>
+   Episode 3:<br>
+   Prologue - Done, no issues<br>
+   Chapter 4 - Done, no issues<br>
+   Chapter 5 - Done, no issues<br>
+   Chapter 9<br>
+   Chapter 10<br>
+   Chapter 11<br>
+   Chapter 13<br>
+   Chapter 17<br>
+   Episode 4:<br>
+   Chapter 17<br>
+   Chapter 19<br>
+   Chapter 20<br>
+   Chapter 21<br>
    16872<br>
 </details>
 
@@ -78,7 +97,107 @@ I'm inclined to believe this is an oversight rather than a purposeful choice, so
 
 Remaining minor misc changes:
 
-* Extra spaces: 26220
+<details>
+   <summary>Extra spaces</summary>
+   Mostly found with the regex string "@k (@v...........\. )" and replaced with "@k\1"<br>
+   479<br>
+   1967<br>
+   2084<br>
+   2109<br>
+   2195<br>
+   3177<br>
+   3269<br>
+   6731<br>
+   11917<br>
+   11923<br>
+   11925<br>
+   12327<br>
+   12561<br>
+   13169<br>
+   13367<br>
+   13372<br>
+   13373<br>
+   13798<br>
+   14581<br>
+   10181<br>
+   15169<br>
+   19300<br>
+   20034<br>
+   22282<br>
+   15546<br>
+   15811<br>
+   15865<br>
+   16960<br>
+   17359<br>
+   26220<br>
+   33720<br>
+   34643<br>
+   36839<br>
+   36986<br>
+   41679<br>
+   42135<br>
+   42162<br>
+   42199<br>
+   42232<br>
+   43589<br>
+   43665<br>
+   43669<br>
+   44188<br>
+   44210<br>
+   44599<br>
+   44884<br>
+   45119<br>
+   45397<br>
+   46077<br>
+   46463<br>
+   46607<br>
+   46618<br>
+   46622<br>
+   46694<br>
+   46703<br>
+   46741<br>
+   46745<br>
+   47009<br>
+   47236<br>
+   47263<br>
+   48936<br>
+   49332<br>
+   50122<br>
+   50804<br>
+   50941<br>
+   51807<br>
+   52697<br>
+   53006<br>
+   53241<br>
+   53786<br>
+   54342<br>
+   54968<br>
+   55994<br>
+   56000<br>
+   56213<br>
+   56878<br>
+   57283<br>
+   57598<br>
+   57692<br>
+   57941<br>
+   58151<br>
+   58353<br>
+   58401<br>
+   58855<br>
+   59515<br>
+   60112<br>
+   60136<br>
+   61406<br>
+   64115<br>
+   64212<br>
+   64329<br>
+   64453<br>
+   64574<br>
+   64635<br>
+   65048<br>
+   65466<br>
+</details>
+
 * Missing period: 31560
 * Missing line break: 27434
 * Lines that have the japanese end quote character 」 in Episode 3 instead of the ending quotation mark: 18603, 19189
