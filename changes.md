@@ -80,6 +80,7 @@ Remaining minor misc changes:
 
 * Extra spaces: 26220
 * Missing period: 31560
+* Missing line break: 27434
 * Lines that have the japanese end quote character 」 in Episode 3 instead of the ending quotation mark: 18603, 19189
 * "You knew that George slipped out of the mansion!!" This should be guesthouse (21228)
     * This was actually a mistake originating from Umineko Project that no one had changed before I found it, so I submitted a pull request to get it fixed there too. Love wins
@@ -87,6 +88,7 @@ Remaining minor misc changes:
 * Reference to a "* shape" rather than an "× shape", in a reference to being "sewn" (21525)
 * "instantly.]" (32174)
 * "whatsover" -> "whatsoever" (2257)
+* "payed" (a real word meaning "to seal up a ship to prevent leaks") => "paid" any notice (10936)
 * Typos in the Umineko Project script that this patch was based on, that were fixed in Umipro but not here (504, 826, 16303, 19616, 24625, 24906, 27212, 30167)
     * Sourced from the following commits:
     * https://github.com/umineko-project/umineko-scripting/commit/23784ec431385d81238dea23a5e86c7442ba6d75
