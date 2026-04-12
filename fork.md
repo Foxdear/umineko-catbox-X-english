@@ -12,12 +12,12 @@ But &Olga's goal was to create the "perfect version." The BEST way to read Umine
 
 This fork has two primary objectives:
 
-## Fix things that are obviously missing or wrong.
+## Fix things that are obviously missing or wrong
 Currently this is basically missing punctuation, missing spaces, leftover Japanese symbols (there are a few lines that have 」 as the ending quotation mark, for example), and at least one minor factual error.
 
-As a reader, I do have *some* questions about word choice and phrasing, but I am not a translator and I do not presume to be one. If I make a change, rather than a fix, it better be for a good reason.
+As a reader, I do have *some* questions about word choice and phrasing, but I am not a translator and I do not presume to be one. I see my role here as similar to an editor: not to alter the writing, but to try to present it in the best way possible.
 
-## Make the repository easier to work with.
+## Make the repository easier to work with
 
 In the original repository, in order to edit the translation, you used to have open script.rb, a single 25 MB file with over **four hundred sixty-four thousand** lines, and dig through that file to find the data you need to edit. This is so big that GitHub won't let you look at it in-browser. It's a pain to work with.
 
@@ -26,5 +26,7 @@ The translation on its own is about ~73k lines. This means that **less than 16%*
 The solution is to take the translation out and make it viewable separately. I've modeled the repository after [Umineko Project's](https://github.com/umineko-project/umineko-scripting) - convenient, since most of this patch uses their translation - and am organizing the translation by chapter. Of course, *I haven't finished reading the story before starting this project*, so the organizing part will be done in pieces. The data is set up so that it doesn't matter what file the line is in exactly, as long as the line exists in a .yml file in one of the story subfolders. The organization is purely for human benefit.
 
 Currently there are still some things you need to look at in script.rb, like character profiles and chapter titles. These will eventually be moved out as well.
+
+A small quirk of this is that I used the `ushort([number])` accompanying each line as the line ID while moving it into a YAML file, but towards the end of the file this count starts over from 0 and continues to 7431. To avoid conflicts, I've appended "A" to the IDs of those lines, so they instead starts from `0A` and end at `7431A`.
 
 For a detailed (but possibly incomplete) list of changes I've made, see [here](changes.md). Be aware this list contains spoilers.
