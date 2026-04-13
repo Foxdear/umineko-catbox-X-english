@@ -74,6 +74,7 @@ I'm inclined to believe this is an oversight rather than a purposeful choice, so
 <details>
    <summary>Sentences with ♪</summary>
    8653<br>
+   23054<br>
    24135<br>
    24138<br>
    24145<br>
@@ -1146,3 +1147,8 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
     * https://github.com/umineko-project/umineko-scripting/commit/134a267165adce3e15dce672e9d07cc9a8f74077
     * https://github.com/umineko-project/umineko-scripting/commit/c347ddb894e804e2926a1b0c0090f606527d1416
 * This is technically changing the translation, but Battler says "e.g. Kumasawa-san" in a blue truth in Episode 4 (32390). "e.g." isn't used anywhere else in the text and it's not really something you would say out loud. I think it's okay to rephrase this as "*like* Kumasawa-san", but I might revert this. The original line is "熊沢さんを始め、当時アリバイがない人間が存在した。"
+* Added ruby text (furigana) to the "fast talking shiritori" in Episode 4 Chapter 8 (25641, 25642, 25646, 25649, 25651). I know how shiritori works but I don't know Japanese so I can't keep up otherwise. This bit lasts for like two seconds but it's IMPORTANT ok
+* Added ruby text for "boku" in Episode 2 (8753), as well as "yandere" (22292) and "ta nuki" (18416) in Episode 3 and "110" (27844) in Episode 4. These aren't strictly necessary (though the fact Kanon says boku is mentioned in the text) but I think they're nice and don't take away from anything
+   * Added pronunciation ruby text to the discussion of the epitaph in Episode 3 (18372, 18377, 18463, 18591) because that section is so kanji heavy and it seems helpful
+   * I also added "99.99% (four nines)" (2192) but I had to switch "four nines" to the ruby text. It's not ideal and I spent a while trying to force it to work the other way (including investigating the font itself) but `.` doesn't work in the ruby text and nothing else looked right
+   * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases.
