@@ -110,6 +110,8 @@ This turns "———" into " -  -  - ". Space-dash-double-space-dash and so on.
 
 To grab the theoretically least spoilery example, compare this effort noise to the unpatched Japanese text. It just doesn't look right. There have been many times reading this patch I saw something like this and felt like something was off.
 
+<img width="577" height="236" alt="kh" src="https://github.com/user-attachments/assets/47014be5-e3ee-49db-afdf-0b989cee6845" />
+
 To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handling certain cases (mainly "———" in place of a word) specially as I come across them so they follow English spacing. For the most part, Umipro uses the em dash properly.
 
 <details>
