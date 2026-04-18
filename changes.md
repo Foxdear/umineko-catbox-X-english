@@ -13,7 +13,7 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
     This isn't the most egeregious example, but this is probably the first one you'd see in the story.
 
    <img width="1999" height="512" alt="red text" src="https://github.com/user-attachments/assets/814b506e-6b28-40a4-bee0-d1b4febd63fb" />
-   
+   <br>
    This looks pretty clearly off in-game, but this line in the code looks like this.
    
    ```'BEATRICE@r@v27/20701286."And I\'ll say more.@k@v27/20701287.@|@y@c900.@[No method exists by which the doors can be locked from the outside without using a key.@]@c.@k @v27/20701288.@|@y@c900.@[Regarding the windows, no method exists by which they could somehow be locked from the outside.@]@c."'```
@@ -1035,6 +1035,8 @@ Every textbox calls the function `s.layout()` (in `layout.rb`) in order to make 
 
 There was an oversight in the original layout code that meant sometimes it did this badly. For example, in Episode 1 Chapter 1:
 
+<img width="2016" height="425" alt="before" src="https://github.com/user-attachments/assets/b6ef3700-2800-44cd-8a8b-24a624a5acae" />
+<br>
 The input for this line is as follows:
 
 `@rGirls at Maria's age tend to be very impressionable.@k@rShe's just about the age when many girls start to get excited about sixth senses and whether they have any psychic potential and stuff.`
@@ -1045,6 +1047,8 @@ The issue in this particular case lies in how `@k@r` is processed. Technically s
 
 I compared the output of putting the script into `s.layout()` before and after, to make sure my changes weren't destructive. `@k@r` is used so often in the narration that this change affects over **two thousand** lines. In the best case, it fixes those lines that seem to break in the middle for no reason. In the most minimal cases, it fits one or two extra words on the previous line, sometimes meaning it doesn't need to create another line at all. 
 
+<img width="2017" height="419" alt="after" src="https://github.com/user-attachments/assets/f0dd52de-6d6d-4df0-a98f-69e1dfa3b312" />
+<br>
 This also meant em dashes would potentially make very long elements (since they're not spaces), so I added special handling for them to allow line breaks (without being deleted like whitespace would be). This only affects about ~90 lines, but anything that improves the reading experience is a win.
 
 ## Other stuff
