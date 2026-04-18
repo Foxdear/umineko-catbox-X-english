@@ -1027,6 +1027,26 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
 6937A<br>
 </details>
 
+There is a reason I can understand why this change might have been made initially, and that is:
+
+## The textbox layout function
+
+Every textbox calls the function `s.layout()` (in `layout.rb`) in order to make sure the text actually fits in the box. It inserts `@r` (the new line command) automatically in appropriate places. This script has a pretty difficult job, determining the width of every line, what special `@` commands are present, and so on, and breaking to the next line when appropriate.
+
+There was an oversight in the original layout code that meant sometimes it did this badly. For example, in Episode 1 Chapter 1:
+
+The input for this line is as follows:
+
+`@rGirls at Maria's age tend to be very impressionable.@k@rShe's just about the age when many girls start to get excited about sixth senses and whether they have any psychic potential and stuff.`
+
+The issue in this particular case lies in how `@k@r` is processed. Technically speaking, `s.layout()` looks for spaces in the input string and separates the words and spaces into "elements". So `@rGirls`, `at`, `Maria's`, and all the spaces in-between get their own elements. If the line is too long, it moves the element to the next line by adding `@r`, trims excess whitespace, and continues until the text is entirely processed. 
+
+...But if you're only breaking on spaces, `impressionable.@k@rShe's` is one element. We started a new line manually in the middle of the string, but it was counting the whole length of that element for the line length. You shouldn't *need* to put a space in between, it's a new line, after all, but I found that `@k@r` and `@k @r` both were processed differently, and this was the cause. I made it so that `@r` always separates itself into a new element when the text is being processed.
+
+I compared the output of putting the script into `s.layout()` before and after, to make sure my changes weren't destructive. `@k@r` is used so often in the narration that this change affects over **two thousand** lines. In the best case, it fixes those lines that seem to break in the middle for no reason. In the most minimal cases, it fits one or two extra words on the previous line, sometimes meaning it doesn't need to create another line at all. 
+
+This also meant em dashes would potentially make very long elements (since they're not spaces), so I added special handling for them to allow line breaks (without being deleted like whitespace would be). This only affects about ~90 lines, but anything that improves the reading experience is a win.
+
 ## Other stuff
 
 <details>
@@ -1152,8 +1172,9 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
    * Japanese eras in Episode 1 (1636, 1637)
    * Kanon's "boku" in Episode 2 (8753)
    * "yandere" (22292) and "ta nuki" (18416) in Episode 3
+      * there's ruby for "tsundere" that I adjusted to match Umipro, because she says "dere" but the ruby said "deredere" (to match "tsuntsun" but like, she didn't say that) (22291/32650)
    * "110" (27844)/"Shotoku Taishi" (23289)/"gaooo" (23252, 24496) in Episode 4
    * These aren't strictly necessary (though the fact Kanon says boku is mentioned in the text) but I think they're nice and don't take away from anything. (Also I personally had no clue who Shotoku Taishi was.)
    * Added pronunciation ruby text to the discussion of the epitaph in Episode 3 (18372, 18377, 18463, 18591) because that section is so kanji heavy and it seems helpful
    * I also added "99.99% (four nines)" (2192) <strike>but I had to switch "four nines" to the ruby text. It's not ideal and I spent a while trying to force it to work the other way (including investigating the font itself) but `.` doesn't work in the ruby text and nothing else looked right</strike> it works if you use full-width characters. I'll allow myself to feel a little smart for that one
-   * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases.
+   * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases. Unfortunately a lot of Japanese cultural references also can't be addressed in the same way Umipro does (adding them to the tips section) without further modding the game.

@@ -117,6 +117,14 @@ class WordWrapLayouter
           when "@r"
             # Newline tag, needs to be processed separately as it should reset
             # the tracked line length
+
+            # New lines should always create new elements.
+            # Without this, "[text]@k@r[text]" can make weird line breaks
+            # By counting both the old and new line as the same "element"
+            # compared to "[text]@k @r[text]" which is fine
+            #(this is something the auto linebreak does anyway)
+            next_element(true)
+
             newline
             append_chars(content)
           else
@@ -196,6 +204,14 @@ class WordWrapLayouter
         next_element
         @current_element_length += width
         append_raw(char)
+        next_element(true)
+      # em dashes are okay to break after, but we don't want them deleted later if they are
+      # I /think/ this does what I want it to
+      elsif char.match?(/—/) && !no_break
+        next_element
+        @current_element_length += width
+        append_raw(char)
+        next_element
         next_element(true)
       else
         @current_element_length += width
