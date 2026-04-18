@@ -1169,7 +1169,7 @@ This also meant em dashes would potentially make very long elements (since they'
 * This is technically changing the translation, but Battler says "e.g. Kumasawa-san" in a blue truth in Episode 4 (32390). "e.g." isn't used anywhere else in the text and it's not really something you would say out loud. I think it's okay to rephrase this as "*like* Kumasawa-san", but I might revert this. The original line is "熊沢さんを始め、当時アリバイがない人間が存在した。"
 * Added ruby text (furigana) to the "fast talking shiritori" in Episode 4 Chapter 8 (25641, 25642, 25646, 25649, 25651). I know how shiritori works but I don't know Japanese so I can't keep up otherwise. This bit lasts for like two seconds but it's IMPORTANT ok
 * Also added ruby text for the following:
-   * Japanese eras in Episode 1 (1636, 1637)
+   * "asougi"/"nayuta" (1553) and the Japanese eras in Episode 1 (1636, 1637) 
    * Kanon's "boku" in Episode 2 (8753)
    * "yandere" (22292) and "ta nuki" (18416) in Episode 3
       * there's ruby for "tsundere" that I adjusted to match Umipro, because she says "dere" but the ruby said "deredere" (to match "tsuntsun" but like, she didn't say that) (22291/32650)
