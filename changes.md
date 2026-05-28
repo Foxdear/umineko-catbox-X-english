@@ -44,7 +44,8 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
    Chapter 17 - Done, fixed 30500, 30523, 30529<br>
    Chapter 19 - Done, fixed 31481 (extra spaces)<br>
    Chapter 20 (Tea Party) - 32162, 32168, 32169, 32180, 32181, 32182, 32340, 32351, 32364, 32365, 32366, 32372, 32384, 32386, 32390, 32391, 32400, 32409, 32411, 32413, 32441, 32501, 32503, 32550, 32552, 32556. God they talk so much<br>
-   Chapter 21 (???) - 32590, 32591, 32595, <br>
+   Chapter 21 (???) - 32590, 32591, 32595<br>
+   Episode 5 in total seems fine. I didn't notice any spacing issues while reading<br>
 </details>
 
 ## "Uu♪"
@@ -89,6 +90,11 @@ I'm inclined to believe this is an oversight rather than a purposeful choice, so
    32614<br>
    32623<br>
    32636<br>
+   32804<br>
+   32807<br>
+   33528<br>
+   34211<br>
+   36515<br>
 </details>
 
 <details>
@@ -129,6 +135,7 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
 27909<br>
 29284<br>
 30506<br>
+34253<br>
 </details>
 
 <details>
@@ -1091,6 +1098,8 @@ This also meant em dashes would potentially make very long elements (since they'
    34643<br>
    36839<br>
    36986<br>
+   36897 (manually)<br>
+   40147 (manually)<br>
    41679<br>
    42135<br>
    42162<br>
@@ -1171,6 +1180,9 @@ This also meant em dashes would potentially make very long elements (since they'
     * https://github.com/umineko-project/umineko-scripting/commit/134a267165adce3e15dce672e9d07cc9a8f74077
     * https://github.com/umineko-project/umineko-scripting/commit/c347ddb894e804e2926a1b0c0090f606527d1416
 * This is technically changing the translation, but Battler says "e.g. Kumasawa-san" in a blue truth in Episode 4 (32390). "e.g." isn't used anywhere else in the text and it's not really something you would say out loud. I think it's okay to rephrase this as "*like* Kumasawa-san", but I might revert this. The original line is "熊沢さんを始め、当時アリバイがない人間が存在した。"
+* In addition to the above, other little nitpicks I want to open an issue for in Umipro but I should probably compile them in a list so I don't make tiny issues and pull requests for every single one:
+   * Ep5 Ch11 - Battler: "Hey, new girls. Is this is your first game here?" This phrasing is incorrect ("Is this your" and "This is your", but not both). Witch Hunt and Steam both translate this as "This here's your first game, right?" which is probably more correct (its a rhetorical question in this context, asking "Is this your first game?" doesn't make much sense) but I don't know if it matches tonally. Temporary adjustment to "This is your first game here, right?" (37083)
+   * Ep5 Ch6 - Several references are made to shogi, but for some reason (thus far) only Gaap's line here refers to it as "Shogi", capitalized. Edited for consistency (34784)
 * Added ruby text (furigana) to the "fast talking shiritori" in Episode 4 Chapter 8 (25641, 25642, 25646, 25649, 25651). I know how shiritori works but I don't know Japanese so I can't keep up otherwise. This bit lasts for like two seconds but it's IMPORTANT ok
 * Also added ruby text for the following:
    * "asougi"/"nayuta" (1553) and the Japanese eras in Episode 1 (1636, 1637) 
@@ -1184,3 +1196,4 @@ This also meant em dashes would potentially make very long elements (since they'
    * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases. Unfortunately a lot of Japanese cultural references also can't be addressed in the same way Umipro does (adding them to the tips section) without further modding the game.
 * Fixed lipsync for one of Natsuhi's lines in Episode 5 (34789)
    * This taught me something interesting about how the engine works: Which sprite is lipsyncing is based on the numbered folder the voiceline is in. Natsuhi's voice folder is `03`, but the files for this line were in `30`, which is normally VIRGILIA's folder. I thought I'd need to change the scripting or something complicated like that, but I just needed to copy the files to the right folder.
+* Adjusted "truth" sfx timing for a Dlanor line (37502)
