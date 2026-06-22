@@ -42,6 +42,9 @@ class WordWrapLayouter
       @style = :regular
       @scale = 1.0
 
+      @connected_to_letter = false
+      @period_count = 0
+
       @elements = []
       @current_element = ""
       @current_line_length = 0 # length of elements in @elements
@@ -125,6 +128,9 @@ class WordWrapLayouter
             #(this is something the auto linebreak does anyway)
             next_element(true)
 
+            @period_count = 0
+            @connected_to_letter = false
+
             newline
             append_chars(content)
           else
@@ -200,22 +206,42 @@ class WordWrapLayouter
     def append_char(char, no_break: false, width_override: nil)
       width = width_override || char_width(char)
 
-      if can_break_on?(char) && !no_break
-        next_element
-        @current_element_length += width
-        append_raw(char)
-        next_element(true)
+      if char.match?(/\./)
+        @period_count += 1
+      # This allows us to reuse the period handler for em-dashes too
       # em dashes are okay to break after, but we don't want them deleted later if they are
-      # I /think/ this does what I want it to
-      elsif char.match?(/—/) && !no_break
+      elsif char.match?(/—/)
+        @period_count += 2
+      end
+
+      if can_break_on?(char) && !no_break
+        @connected_to_letter = false
+        @period_count = 0
         next_element
         @current_element_length += width
         append_raw(char)
+        next_element(true)
+      # The script as written uses lots of long, connected strings of periods and words
+      # with no spaces in-between. These would all get wrapped as one big element.
+      # This is to allow line breaks in those large unseparated blocks
+      elsif !char.match?(/[".!?—]/) && !no_break && (@period_count > 1) && @connected_to_letter
+        @period_count = 0
+        @connected_to_letter = false
         next_element
         next_element(true)
+        next_element
+        @current_element_length += width
+        append_raw(char)
       else
         @current_element_length += width
         append_raw(char)
+      end
+
+      # We do this check after so letters don't see themselves as "attached" to themselves
+      if char.match?(/[a-zA-Z]/)
+        # Not resetting the count here makes " ...Word" breakable after the W
+        @period_count = 0
+        @connected_to_letter = true
       end
 
       check_break
