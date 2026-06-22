@@ -46,6 +46,8 @@ The first one is that the "red truth" (and later "blue truth") throughout has in
    Chapter 20 (Tea Party) - 32162, 32168, 32169, 32180, 32181, 32182, 32340, 32351, 32364, 32365, 32366, 32372, 32384, 32386, 32390, 32391, 32400, 32409, 32411, 32413, 32441, 32501, 32503, 32550, 32552, 32556. God they talk so much<br>
    Chapter 21 (???) - 32590, 32591, 32595<br>
    Episode 5 in total seems fine. I didn't notice any spacing issues while reading<br>
+   Episode 6 and on: I wrote a regex to take care of most of these, I probably should've just done this sooner. The regex is `([.?!,]@k@v...........\.)([a-z0-9@/|\.]*@c[0-9][0-9][0-9]\.@\[[a-zA-Z])`, replaced with `\1 \2`. 45054, 45059, 45065, 45810, 46132, 46191, 46204, 46265, 46275, 46315, 46316, 46320, 47245, 48430, 48433, 48493, 49331, 60563, 60564, 60780, 60781<br>
+   Episode 6 Chapter 15 is one where I had to fix something manually (46656, 46567)
 </details>
 
 ## "Uu♪"
@@ -70,6 +72,9 @@ I'm inclined to believe this is an oversight rather than a purposeful choice, so
    24128<br>
    32583<br>
    32618<br>
+   43211<br>
+   43224<br>
+   45004<br>
 </details>
 
 <details>
@@ -1058,11 +1063,13 @@ I compared the output of putting the script into `s.layout()` before and after, 
 <br>
 This also meant em dashes would potentially make very long elements (since they're not spaces), so I added special handling for them to allow line breaks (without being deleted like whitespace would be). This only affects about ~90 lines, but anything that improves the reading experience is a win.
 
+Later, after noticing how often the script likes to use long unbroken lines of 8+ periods and words without spaces, I added special handling for those too. Otherwise.........text......like...this... all counts as one element, and that messes with the layout a lot. This was a more significant change, around ~400 lines had their formatting affected by this.
+
 ## Other stuff
 
 <details>
    <summary>Extra spaces</summary>
-   Mostly found with the regex string "@k (@v...........\. )" and replaced with "@k\1"<br>
+   Mostly found with the regex string `@k (@v...........\. )` and replaced with `@k\1`<br>
    479<br>
    1967<br>
    2084<br>
@@ -1108,8 +1115,10 @@ This also meant em dashes would potentially make very long elements (since they'
    43589<br>
    43665<br>
    43669<br>
+   43762 (manual)<br>
    44188<br>
    44210<br>
+   44358 (manual)<br>
    44599<br>
    44884<br>
    45119<br>
@@ -1126,6 +1135,7 @@ This also meant em dashes would potentially make very long elements (since they'
    47009<br>
    47236<br>
    47263<br>
+   48270 (manual)<br>
    48936<br>
    49332<br>
    50122<br>
@@ -1164,16 +1174,20 @@ This also meant em dashes would potentially make very long elements (since they'
    65466<br>
 </details>
 
-* Missing period: 31560
+* Missing period: 31560, 48341
 * Missing line break: 27434
-* Lines that have the japanese end quote character 」 in Episode 3 instead of the ending quotation mark: 18603, 19189
+* Missing starting quotation mark: 42222
+* Extra quotation mark: 47266
+* Missing spaces not covered by anything in the main sections: 23245, 45357, 46445, 47725
+* Lines that have the japanese end quote character 」 in Episode 3 and 6 instead of the ending quotation mark: 18603, 19189, 19281, 42219
 * "You knew that George slipped out of the mansion!!" This should be guesthouse (21228)
     * This was actually a mistake originating from Umineko Project that no one had changed before I found it, so I submitted a pull request to get it fixed there too. Love wins
-* "it's a good view.Uu!" (23245)
 * Reference to a "* shape" rather than an "× shape", in a reference to being "sewn" (21525)
-* "instantly.]" (32174)
+* Stray brackets (32174, 46530)
 * "whatsover" -> "whatsoever" (2257)
 * "payed" (a real word meaning "to seal up a ship to prevent leaks") => "paid" any notice (10936)
+* "proceeeded" (45298)
+* "worshiped" is a technically correct but, as far as I know, uncommon spelling. I guess this is personal preference but I've changed this to "worshipped" (42970)
 * Typos in the Umineko Project script that this patch was based on, that were fixed in Umipro but not here (504, 826, 16303, 19616, 24625, 24906, 27212, 30167)
     * Sourced from the following commits:
     * https://github.com/umineko-project/umineko-scripting/commit/23784ec431385d81238dea23a5e86c7442ba6d75
@@ -1193,7 +1207,9 @@ This also meant em dashes would potentially make very long elements (since they'
    * These aren't strictly necessary (though the fact Kanon says boku is mentioned in the text) but I think they're nice and don't take away from anything. (Also I personally had no clue who Shotoku Taishi was.)
    * Added pronunciation ruby text to the discussion of the epitaph in Episode 3 (18372, 18377, 18463, 18591) because that section is so kanji heavy and it seems helpful
    * I also added "99.99% (four nines)" (2192) <strike>but I had to switch "four nines" to the ruby text. It's not ideal and I spent a while trying to force it to work the other way (including investigating the font itself) but `.` doesn't work in the ruby text and nothing else looked right</strike> it works if you use full-width characters. I'll allow myself to feel a little smart for that one
+   * "Itouikukuro" (40647) and a personal pronoun (40879) in Episode 6. Also fixed a point where the text mistakenly refers to the "嘉" in Kanon (嘉音) as "on" instead of "ka" (41458). I was confused why Jessica would think his real name had "on" in it....
    * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases. Unfortunately a lot of Japanese cultural references also can't be addressed in the same way Umipro does (adding them to the tips section) without further modding the game.
 * Fixed lipsync for one of Natsuhi's lines in Episode 5 (34789)
    * This taught me something interesting about how the engine works: Which sprite is lipsyncing is based on the numbered folder the voiceline is in. Natsuhi's voice folder is `03`, but the files for this line were in `30`, which is normally VIRGILIA's folder. I thought I'd need to change the scripting or something complicated like that, but I just needed to copy the files to the right folder.
 * Adjusted "truth" sfx timing for a Dlanor line (37502)
+* Adjusted line timing on a Jessica line (43966). This is one of those lines where the text delay is hard-coded on the back-end, so I can't get this perfect, but it happens more naturally than it did before.
