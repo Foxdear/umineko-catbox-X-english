@@ -144,6 +144,7 @@ To make it easy on myself, I'm blanket *un*replacing " - " with "—", but handl
 29284<br>
 30506<br>
 34253<br>
+50786<br>
 </details>
 
 <details>
@@ -1153,6 +1154,7 @@ Later, after noticing how often the script likes to use long unbroken lines of 8
    54968<br>
    55994<br>
    56000<br>
+   56021 (manual)<br>
    56213<br>
    56878<br>
    57283<br>
@@ -1182,6 +1184,7 @@ Later, after noticing how often the script likes to use long unbroken lines of 8
 * Missing starting quotation mark: 42222
 * Extra quotation mark: 47266
 * Missing spaces not covered by anything in the main sections: 23245, 45357, 46445, 47725
+* There are a few other times where there's extra spaces or missing spaces and I fixed them but I haven't noted them all down. They're in there somewhere 
 * Lines that have the japanese end quote character 」 in Episode 3 and 6 instead of the ending quotation mark: 18603, 19189, 19281, 42219
 * "You knew that George slipped out of the mansion!!" This should be guesthouse (21228)
     * This was actually a mistake originating from Umineko Project that no one had changed before I found it, so I submitted a pull request to get it fixed there too. Love wins
@@ -1189,7 +1192,6 @@ Later, after noticing how often the script likes to use long unbroken lines of 8
 * Stray brackets (32174, 46530)
 * "whatsover" -> "whatsoever" (2257)
 * "payed" (a real word meaning "to seal up a ship to prevent leaks") => "paid" any notice (10936)
-* "proceeeded" (45298)
 * "worshiped" is a technically correct but, as far as I know, uncommon spelling. I guess this is personal preference but I've changed this to "worshipped" (42970)
 * Typos in the Umineko Project script that this patch was based on, that were fixed in Umipro but not here (504, 826, 16303, 19616, 24625, 24906, 27212, 30167)
     * Sourced from the following commits:
@@ -1200,6 +1202,10 @@ Later, after noticing how often the script likes to use long unbroken lines of 8
 * In addition to the above, other little nitpicks I want to open an issue for in Umipro but I should probably compile them in a list so I don't make tiny issues and pull requests for every single one:
    * Ep5 Ch11 - Battler: "Hey, new girls. Is this is your first game here?" This phrasing is incorrect ("Is this your" and "This is your", but not both). Witch Hunt and Steam both translate this as "This here's your first game, right?" which is probably more correct (its a rhetorical question in this context, asking "Is this your first game?" doesn't make much sense) but I don't know if it matches tonally. Temporary adjustment to "This is your first game here, right?" (37083)
    * Ep5 Ch6 - Several references are made to shogi, but for some reason (thus far) only Gaap's line here refers to it as "Shogi", capitalized. Edited for consistency (34784)
+   * Ep7 Ch12 - The servants of the Gospel House (福音の家の使用人) are almost exclusively referred to as such, or as "Gospel House servants", but there is exactly one line where they are referred to as "*Fukuin* servants", which is the term "Gospel" untranslated (52588)
+   * Ep7 Ch14 - "He or she''ll need two parents to look after him or her." This line (両親が揃ってなきゃ可哀想だ。) roughly translates literally to "It'd be sad if both parents weren't there [for the child]". I'm replacing the awkward double "him or her" with the gender neutral "they", because it's 2026, but this line could probably be rephrased entirely (53505)
+   * "proceeeded" (45298)
+   * "an mysterious" (52791)
 * Added ruby text (furigana) to the "fast talking shiritori" in Episode 4 Chapter 8 (25641, 25642, 25646, 25649, 25651). I know how shiritori works but I don't know Japanese so I can't keep up otherwise. This bit lasts for like two seconds but it's IMPORTANT ok
 * Also added ruby text for the following:
    * "asougi"/"nayuta" (1553) and the Japanese eras in Episode 1 (1636, 1637) 
@@ -1211,8 +1217,15 @@ Later, after noticing how often the script likes to use long unbroken lines of 8
    * Added pronunciation ruby text to the discussion of the epitaph in Episode 3 (18372, 18377, 18463, 18591) because that section is so kanji heavy and it seems helpful
    * I also added "99.99% (four nines)" (2192) <strike>but I had to switch "four nines" to the ruby text. It's not ideal and I spent a while trying to force it to work the other way (including investigating the font itself) but `.` doesn't work in the ruby text and nothing else looked right</strike> it works if you use full-width characters. I'll allow myself to feel a little smart for that one
    * "Itouikukuro" (40647) and a personal pronoun (40879) in Episode 6. Also fixed a point where the text mistakenly refers to the "嘉" in Kanon (嘉音) as "on" instead of "ka" (41458). I was confused why Jessica would think his real name had "on" in it....
+   * All the station names in Episode 7 (54594), and the reading of Kyoto (54640). The same chapter also has a place where incorrect ruby text was breaking the rest of the line (54601)
    * I wanted to add more of the missing ruby text from Umipro, but I can't tell why it's there in the first place in some cases. Unfortunately a lot of Japanese cultural references also can't be addressed in the same way Umipro does (adding them to the tips section) without further modding the game.
 * Fixed lipsync for one of Natsuhi's lines in Episode 5 (34789)
    * This taught me something interesting about how the engine works: Which sprite is lipsyncing is based on the numbered folder the voiceline is in. Natsuhi's voice folder is `03`, but the files for this line were in `30`, which is normally VIRGILIA's folder. I thought I'd need to change the scripting or something complicated like that, but I just needed to copy the files to the right folder.
 * Adjusted "truth" sfx timing for a Dlanor line (37502)
 * Adjusted line timing on a Jessica line (43966). This is one of those lines where the text delay is hard-coded on the back-end, so I can't get this perfect, but it happens more naturally than it did before.
+* For whatever reason, a line in Episode 7 changed a line to remove explanatory kanji from a line about the epitaph and instead bolded text. This is the first time bold text was used in all of the story and it stuck out as odd. I've changed this so it matches Umipro (54606)
+* Two lines had the way they referred to October 4th swapped, probably due to faulty search and replace (55399, 56769)
+* Adjusted timings for a line in a way that probably better matches what is intended (delay then voice, rather then voice with delayed text) (52811)
+* Episode 7 had several voice lines missing for dialogue. The dialogue still exists within the game files, so I've re-added those and adjusted some other lines that were nearby (49563, 50699, 50701, 50703, 52038, 52043)
+   * When investigating why, I discovered that the Switch release of the game was censored. Every line that was missing the voice lines was changed or omitted when compared to the script Umineko Project worked off of. Basically, they removed any mention of the idea that Kuwadorian Beatrice is Kinzo's daughter, going so far as to say (not direct translations) "Beatrice had a child not related by blood to Kinzo" and "Kinzo took advantage of Kuwadorian Beatrice because he was never able to act on his desires with her mother". Which is a different level of fucked up, but it's not *inbreeding* so I guess to the censors it's okay!
+   * This also led me to discover that there are alternate line deliveries for certain lines in the game files. I don't know what the difference is because I don't speak Japanese (though I can tell the phrasing is different), so I'm not sure which one is the "correct" one. For the lines above, I used the filenames Umipro uses when possible, because I assume they're the same.

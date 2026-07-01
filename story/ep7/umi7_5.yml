@@ -416,11 +416,11 @@
 50696: 'Lion@r@v53/75300246."What are you doing...?@k @v53/75300247.Is your butt itching?"'
 50697: 'Will@r@v54/75400506."......Tch."'
 50698: 'Lion@r@v53/75300248."And later on?@k @v53/75300249.Beatrice and Grandfather continued their happy relationship in the villa from then on...?"'
-50699: 'Nanjo@r@v19/71900025B."I have heard that it was a modest, peaceful life.@k .......Several years later, they had a child."'
+50699: 'Nanjo@r@v19/71900025B."I have heard that it was a modest, peaceful life.@k@v19/71900026. .......Several years later, they had a child."'
 #s.ins 0x86, ushort(50700), byte(0), byte(1), s.layout(''@r彼女に金蔵とは血の繋がらない忘れ形見がいたことを南條が知るのは、その後しばらく経ってからのことである.'')
-50701: 'Will@r@v54/75400507B."And so Kuwadorian''s Beatrice was born."'
+50701: 'Will@r@v54/75400507."And so Kuwadorian''s Beatrice was born."'
 #s.ins 0x86, ushort(50702), byte(0), byte(1), s.layout(''@rだが南條がそれを知った時には、ベアトリーチェは既にひどく身体を患い、今際の際にあったらしい.残された娘は金蔵に託され、そして.......'')
-50703: 'Nanjo@r@v19/71900027B."The birth...didn''t go well......@k@v19/71900028. Truly a sad tale."'
+50703: 'Nanjo@r@v19/71900027."The birth...didn''t go well......@k@v19/71900028. Truly a sad tale."'
 50704: 'Lion@r@v53/75300250."You don''t mean...she died?!"'
 50705: 'Will@r@v54/75400508."Don''t be surprised.@k@v54/75400509. Kinzo believed his daughter was Beatrice reborn.@k@v54/75400510. ...Don''t ignore the heart. It''s possible to reason it out."'
 50706: 'Lion@r@v53/75300251."Y-......you''re right.@k@v53/75300252. ......My apologies."'
