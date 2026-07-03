@@ -27,13 +27,8 @@ elsif sha256 == '1537bb6f964e2b3ce5501fc68d86f13b7b483d385f34ea6630a7e4d33758aa8
 elsif sha256 == 'f3be6c855e97d0442c9ec610d38e219d3696cf7e5da9c0f1b430d9df6d3f7130'
   load './assoc/konosuba.rb'
 else
-  MODE = :kal
-  ADDRESSES = {}
-  REGISTERS = {}
-  FF_CALLS = {}
-  WINDOWS = {}
-  REQUIRE_LABELS = Set.new
-  puts "Script not recognised! You are probably trying to load a different SNR file than Kal or Saku. This may or may not work."
+  load './assoc/saku.rb'
+  puts "Script not recognised! Treating the script as if it's Saku. This may or may not work."
 end
 
 file = open(path, 'rb')

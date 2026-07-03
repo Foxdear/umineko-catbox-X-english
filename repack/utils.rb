@@ -24,7 +24,7 @@ module Utils
 
         key = hexdump(failed_byte_sequence)
         mapped_char = mapping[key]
-        raise "Could not convert bytes (#{code}): #{key}" if mapped_char.nil?
+        raise "Could not convert bytes (#{code}): #{key} from #{src}" if mapped_char.nil?
 
         converter.insert_output(mapped_char.force_encoding(mapped_encoding))
       else
