@@ -342,6 +342,7 @@ Register = Struct.new(:id)
 Parameter = Struct.new(:value)
 
 Raw = Struct.new(:str)
+BMN = Struct.new(:args)
 
 def raw_pack(val, paradigm); Raw.new([val].pack(paradigm)); end
 def byte(val); raw_pack(val, 'C'); end
@@ -354,6 +355,8 @@ def uint24(val)
   packed = [val & 0xffff, val >> 16].pack('S<C')
   Raw.new(packed)
 end
+
+def bmn(**args); BMN.new(args); end
 
 class KalScript
   def initialize(offset)
@@ -415,6 +418,8 @@ class KalScript
       elsif e.is_a? Array
         @data.write([e.length].pack('C'))
         e.each { |f| write_varlen(f) }
+      elsif e.is_a? BMN
+        write_bmn(e)
       else
         write_varlen(e)
       end
@@ -454,19 +459,31 @@ class KalScript
       if e >= 0
         @data.write([0x80 | ((e & 0x700) >> 8), e & 0xff].pack('CC'))
       else
-        shifted = e + 0xfff
+        shifted = e + 0x1000
         @data.write([0x80 | ((shifted & 0xf00) >> 8), shifted & 0xff].pack('CC'))
       end
     elsif e <= 0x7ffff && e >= -0x80000
       if e >= 0
         @data.write([0x90 | ((e & 0x70000) >> 16), ((e & 0xff00) >> 8), e & 0xff].pack('CCC'))
       else
-        shifted = e + 0xfffff
+        shifted = e + 0x100000
         @data.write([0x90 | ((shifted & 0xf0000) >> 16), ((shifted & 0xff00) >> 8), shifted & 0xff].pack('CCC'))
       end
     else
       raise "Varlen const #{e} too big or too small"
     end
+  end
+
+  def write_bmn(e)
+    varlens = []
+    bitmask = 0
+    e.args.sort_by(&:first).each do |k, v|
+      bitmask |= (1 << k)
+      varlens << v
+    end
+
+    @data.write([bitmask].pack('C'))
+    varlens.each { |v| write_varlen(v) }
   end
 
   def fix_labels
